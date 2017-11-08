@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_strlowercase.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgurova <dariagurova91@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/23 09:02:14 by dgurova           #+#    #+#             */
-/*   Updated: 2017/09/28 17:46:41 by dgurova          ###   ########.fr       */
+/*   Created: 2017/04/12 08:53:42 by dgurova           #+#    #+#             */
+/*   Updated: 2017/04/12 09:04:14 by dgurova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-char *ft_strrev(char *str)
+
+char	*ft_strlowercase(char *str)
 {
-	int i;
-	int len;
-	char *tmp;
+	int idx;
 
-	i = 0;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	while (i < (len / 2))
+	idx = 0;
+	while (str[idx])
 	{
-		tmp = str[len - (i + 1)];
-		str[len - (i + 1)] = str[i];
-		str[i] = tmp;
-		i++;
-
+		if (str[idx] >= 'A' && str[idx] <= 'Z')
+			str[idx] = str[idx] + 32;
+		idx++;
 	}
 	return (str);
 }
-
-int main()
-{
-	char str[] = "dasha";
-	ft_strrev(str);
-
-	printf("%s", str);
-	return (0);
-}
-

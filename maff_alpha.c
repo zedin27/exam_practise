@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   maff_alpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgurova <dariagurova91@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/23 09:02:14 by dgurova           #+#    #+#             */
-/*   Updated: 2017/09/28 17:46:41 by dgurova          ###   ########.fr       */
+/*   Created: 2017/04/21 09:27:32 by dgurova           #+#    #+#             */
+/*   Updated: 2017/04/21 10:27:55 by dgurova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-char *ft_strrev(char *str)
+#include <unistd.h>
+void	ft_putchar(char c)
 {
+	write(1, &c, 1);
+}
+int		main(void)
+{
+	int min;
+	int maj;
 	int i;
-	int len;
-	char *tmp;
-
+	
+	min = 'a';
+	maj = 'B';
 	i = 0;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	while (i < (len / 2))
-	{
-		tmp = str[len - (i + 1)];
-		str[len - (i + 1)] = str[i];
-		str[i] = tmp;
-		i++;
-
-	}
-	return (str);
-}
-
-int main()
+	while (i <= 12)
 {
-	char str[] = "dasha";
-	ft_strrev(str);
-
-	printf("%s", str);
-	return (0);
+	ft_putchar(min);
+	ft_putchar(maj);
+	min = min + 2;
+	maj = maj + 2;
+	i++;
 }
-
+ft_putchar('\n');
+return (0);
+}

@@ -1,42 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   print_bits.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgurova <dariagurova91@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/23 09:02:14 by dgurova           #+#    #+#             */
-/*   Updated: 2017/09/28 17:46:41 by dgurova          ###   ########.fr       */
+/*   Created: 2017/04/21 08:43:38 by dgurova           #+#    #+#             */
+/*   Updated: 2017/04/21 08:54:14 by dgurova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-char *ft_strrev(char *str)
+
+int	 str_is alpha(char *str)
 {
 	int i;
-	int len;
-	char *tmp;
+	char c;
 
 	i = 0;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	while (i < (len / 2))
-	{
-		tmp = str[len - (i + 1)];
-		str[len - (i + 1)] = str[i];
-		str[i] = tmp;
+	while (str[i] != '\0')
+		c = str[i];
+	if (!(str[i] >= 'A' && str[i] <= 'Z')) && (!(str[i] >= 'a' && str[i] <= 'z'))
+	return (0)
 		i++;
-
-	}
-	return (str);
+	return (1)
 }
-
-int main()
-{
-	char str[] = "dasha";
-	ft_strrev(str);
-
-	printf("%s", str);
-	return (0);
-}
-

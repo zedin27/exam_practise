@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   aff_a.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgurova <dariagurova91@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/23 09:02:14 by dgurova           #+#    #+#             */
-/*   Updated: 2017/09/28 17:46:41 by dgurova          ###   ########.fr       */
+/*   Created: 2017/04/21 14:40:22 by dgurova           #+#    #+#             */
+/*   Updated: 2017/04/23 11:16:09 by dgurova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-char *ft_strrev(char *str)
+#include <unistd.h>
+void	ft_putchar(char c)
 {
-	int i;
-	int len;
-	char *tmp;
-
-	i = 0;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	while (i < (len / 2))
-	{
-		tmp = str[len - (i + 1)];
-		str[len - (i + 1)] = str[i];
-		str[i] = tmp;
-		i++;
-
-	}
-	return (str);
+	write(1, &c, 1);
 }
-
-int main()
+int main(int argc, char **argv)
 {
-	char str[] = "dasha";
-	ft_strrev(str);
+	char a;
+	char *av;
 
-	printf("%s", str);
+	av = argv[1];
+	a = 'a';
+	if (argc == 1)
+	{
+		ft_putchar(a);
+		ft_putchar('\n');
+	}
+	while (*av != '\0')
+	{
+		if (*av  == a)
+		{
+			ft_putchar(a);
+			break ;
+		}
+		av++;
+	}
+	ft_putchar('\n');
 	return (0);
 }
+
 

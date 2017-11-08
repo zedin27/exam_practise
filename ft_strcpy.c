@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgurova <dariagurova91@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/23 09:02:14 by dgurova           #+#    #+#             */
-/*   Updated: 2017/09/28 17:46:41 by dgurova          ###   ########.fr       */
+/*   Created: 2017/04/22 13:20:18 by dgurova           #+#    #+#             */
+/*   Updated: 2017/04/22 15:48:30 by dgurova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
-char *ft_strrev(char *str)
+char    *ft_strcpy(char *s1, char *s2)
 {
 	int i;
-	int len;
-	char *tmp;
 
 	i = 0;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	while (i < (len / 2))
+	if (*s2 >= *s1)
+		while (s1[i] != '\0')
 	{
-		tmp = str[len - (i + 1)];
-		str[len - (i + 1)] = str[i];
-		str[i] = tmp;
+		s2[i] = s1[i];
 		i++;
-
 	}
-	return (str);
+	s2[i] = '\0';
+	return (s2);
 }
 
 int main()
 {
-	char str[] = "dasha";
-	ft_strrev(str);
-
-	printf("%s", str);
-	return (0);
+	char src[] = "fgfyuhg";
+   char dest[20];
+   ft_strcpy(src,dest);
+printf("%s", dest);
+return(0);
 }
 

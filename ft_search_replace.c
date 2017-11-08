@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev.c                                        :+:      :+:    :+:   */
+/*   ft_search_replace.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgurova <dariagurova91@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/23 09:02:14 by dgurova           #+#    #+#             */
-/*   Updated: 2017/09/28 17:46:41 by dgurova          ###   ########.fr       */
+/*   Created: 2017/04/14 08:14:49 by dgurova           #+#    #+#             */
+/*   Updated: 2017/04/14 08:16:42 by dgurova          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-char *ft_strrev(char *str)
+
+#include <unistd.h>
+
+void	ft_putchar(char c)
+{
+		write(1, &c, 1);
+}
+
+void	ft_replace(char *d, char a, char b)
 {
 	int i;
-	int len;
-	char *tmp;
 
 	i = 0;
-	len = 0;
-	while (str[len] != '\0')
-		len++;
-	while (i < (len / 2))
+	while (d[i] != '\0')
 	{
-		tmp = str[len - (i + 1)];
-		str[len - (i + 1)] = str[i];
-		str[i] = tmp;
-		i++;
-
+		if (d[i] == a)
+		ft_putchar(b);
+			else
+	ft_putchar(d[i]);
+	i++;
 	}
-	return (str);
 }
 
-int main()
+int		main(int argc, char **argv)
 {
-	char str[] = "dasha";
-	ft_strrev(str);
-
-	printf("%s", str);
-	return (0);
+		if (argc == 4)
+				{
+	if (!(argv[3][1] != '\0' || argv[2][1] != '\0'))
+		ft_replace(argv[1], argv[2][0], argv[3][0]);
+								}
+			ft_putchar('\n');
+				return (0);
 }
-
